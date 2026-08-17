@@ -1,0 +1,30 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Local evaluation data
+/evaluation/data/local/
+/evaluation/results/local/
+
+# Logs
+*.log
