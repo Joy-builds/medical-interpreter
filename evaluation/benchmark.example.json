@@ -1,0 +1,15 @@
+{
+  "case_id": "demo-001",
+  "language_pair": "bn-BD_en",
+  "speaker": "patient",
+  "domain_tags": ["symptom", "duration"],
+  "source_text": "তিন দিন ধরে বুকের ডান পাশে ব্যথা হচ্ছে।",
+  "reference_translation": "I have had pain on the right side of my chest for three days.",
+  "critical_entities": [
+    {"type": "symptom", "value": "pain"},
+    {"type": "body_location", "value": "right side of chest"},
+    {"type": "duration", "value": "three days"}
+  ],
+  "consent_status": "not_applicable",
+  "notes": "Synthetic example only. Do not treat as clinical guidance."
+}
