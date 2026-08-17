@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://medical-interpreter.local/schemas/benchmark.schema.json",
+  "title": "Medical Interpreter Benchmark Case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "language_pair", "speaker", "domain_tags", "source_text"],
+  "properties": {
+    "case_id": {"type": "string", "pattern": "^[A-Za-z0-9._-]+$"},
+    "language_pair": {"const": "bn-BD_en"},
+    "speaker": {"enum": ["patient", "doctor"]},
+    "domain_tags": {
+      "type": "array",
+      "items": {"enum": ["general", "symptom", "medication", "dose", "number", "unit", "allergy", "negation", "duration", "date", "uncertainty", "code_switching", "noise", "elderly", "accent", "rapid_speech"]}
+    },
+    "source_text": {"type": "string", "minLength": 1},
+    "reference_translation": {"type": "string"},
+    "critical_entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "value"],
+        "properties": {
+          "type": {"enum": ["medication", "dose", "number", "unit", "allergy", "symptom", "negation", "date", "duration", "uncertainty", "body_location", "frequency"]},
+          "value": {"type": "string"}
+        }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "string"},
+        "sample_rate_hz": {"type": "integer", "minimum": 8000},
+        "duration_ms": {"type": "integer", "minimum": 1}
+      }
+    },
+    "consent_status": {"enum": ["not_applicable", "approved", "pending", "rejected"]},
+    "notes": {"type": "string"}
+  }
+}
